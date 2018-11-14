@@ -10,7 +10,7 @@ green = (0,255,0)
 
 
 temp = sense.get_temperature()
-printtemp = ("%.2f" % round(temp,2)) # Temperaturen rundet til 2 decimaler
+printtemp = ("%.2f" % round(temp,0)) # Temperaturen rundet til 2 decimaler
 
 
 x = 0
@@ -31,9 +31,9 @@ def DoColors(a,b,c):
 		elif c == green:
 			c = red
 
-while (y<8):
-	DoColors(x,y,color)
-	y = y+1
+#while (y<8):
+#	DoColors(x,y,color)
+#	y = y+1
 	
 
 sense.show_message(str(printtemp))
