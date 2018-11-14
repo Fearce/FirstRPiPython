@@ -39,7 +39,7 @@ def DoColors(a,b,c):
 #	y = y+1
 	
 while (y<=3):
-	while(x<8)
+	while(x<8):
 		sense.set_pixel(x,y,red)
 		time.sleep(0.2)
 		x += 1
