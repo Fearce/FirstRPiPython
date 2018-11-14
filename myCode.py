@@ -13,9 +13,9 @@ temp = sense.get_temperature()
 printtemp = ("%.2f" % round(temp,2)) # Temperaturen rundet til 2 decimaler
 
 
-x = 0
-y = 0
-color = red
+global x = 0
+global y = 0
+global color = red
 
 def DoColors(a,b,c):
 	while (a<8):
@@ -35,7 +35,10 @@ def DoColors(a,b,c):
 #	DoColors(x,y,color)
 #	y = y+1
 	
+while (y<=4):
+	sense.set_pixel(x,y,red)
+	y += 1
 
-sense.show_message(str(printtemp))
+#sense.show_message(str(printtemp))
 	
 
