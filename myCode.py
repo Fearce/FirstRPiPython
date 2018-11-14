@@ -21,14 +21,15 @@ global color
 color = red
 
 def ChangeColor():
-	if c == red:
-		c = blue
-	elif c == blue:
-		c = yellow
-	elif c == yellow:
-		c = green
-	elif c == green:
-		c = red
+	global color
+	if color == red:
+		color = blue
+	elif color == blue:
+		color = yellow
+	elif color == yellow:
+		color = green
+	elif color == green:
+		color = red
 
 #while (y<8):
 #	DoColors(x,y,color)
@@ -36,10 +37,10 @@ def ChangeColor():
 	
 while (y<=3):
 	while(x<8):
-		sense.set_pixel(x,y,red)
+		sense.set_pixel(x,y,color)
 		time.sleep(0.2)
 		x += 1
-		if (x==7):
+		if (x==8):
 			ChangeColor()
 	time.sleep(0.2)
 	y += 1
