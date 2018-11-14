@@ -15,7 +15,28 @@ printtemp = ("%.2f" % round(temp,2)) # Temperaturen rundet til 2 decimaler
 
 x = 0
 y = 0
+color = red
 
-while (x<8):
+def DoColors(a,b,c):
+  while (a<8):
+		sense.set_pixel(a,b,c)
+		time.sleep(0.2)
+		a = a+1
+		if c == red:
+			c = blue
+		elif c == blue:
+			c = yellow
+		elif c == yellow:
+			c = green
+		elif c == green:
+			c = red
+
+while (y<8):
+	DoColors(x,y,color)
+	y = y+1
+	
+
+	
+		
 	
 
