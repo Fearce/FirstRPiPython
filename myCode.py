@@ -11,7 +11,7 @@ green = (0,255,0)
 
 temp = sense.get_temperature()
 printtemp = ("%.2f" % round(temp,2)) # Temperaturen rundet til 2 decimaler
-# sense.show_message(str(printtemp))
+
 
 x = 0
 y = 0
@@ -36,7 +36,6 @@ while (y<8):
 	y = y+1
 	
 
-	
-		
+sense.show_message(str(printtemp))
 	
 
