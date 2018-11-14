@@ -119,18 +119,31 @@ def MakeDotJoystick():
 		if (foodX == x and foodY == y):
 			points += 1
 			foodX = random.randint(0,7)
+			if (foodX == x):
+				foodX = random.randint(0,7)
 			foodY = random.randint(0,7)
+			if (foodY == y):
+				foodY = random.randint(0,7)
 			sense.clear()
 		sense.set_pixel(foodX,foodY,yellow)
 		for pts in range(points):
 			if (lastDir == "up"):
+				while (y+pts>7):
+					y -= 1
 				sense.set_pixel(x,y+pts,color)
 			if (lastDir == "down"):
+				while (y-pts<0):
+					y += 1
 				sense.set_pixel(x,y-pts,color)
 			if (lastDir == "left"):
+				while (x+pts > 7):
+					x-=1
 				sense.set_pixel(x+pts,y,color)
 			if (lastDir == "right"):
+				while (x-pts<0):
+					x+=1
 				sense.set_pixel(x-pts,y,color)
+				
 		
 MakeDotJoystick()
 	
