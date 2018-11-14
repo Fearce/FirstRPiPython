@@ -106,7 +106,7 @@ def MakeDotJoystick():
 					sense.clear()
 				elif (event.direction == "middle"):
 					x = 4
-					points = 0
+					points = 1
 					y = 4
 					sense.clear()
 					
