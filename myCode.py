@@ -130,7 +130,7 @@ def MakeDotJoystick():
 			if (lastDir == "left"):
 				sense.set_pixel(x+pts,y,color)
 			if (lastDir == "right"):
-				sense.set_pixel(x-pts,y-pts,color)
+				sense.set_pixel(x-pts,y,color)
 		
 MakeDotJoystick()
 	
