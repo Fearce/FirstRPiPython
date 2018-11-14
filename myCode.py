@@ -1,5 +1,6 @@
 from sense_hat import SenseHat
 import time
+import random
 
 sense = SenseHat()
 
@@ -78,6 +79,8 @@ def DisplayTempByColor(): #shows temp in a color
 def MakeDotJoystick():
 	x = 4
 	y = 4
+	foodX = random.randint(0,7)
+	foodY = random.randint(0,7)
 	color = white
 	sense.set_pixel(x,y,color)
 	while True:
@@ -106,6 +109,11 @@ def MakeDotJoystick():
 			color = blue
 		else:
 			color = white
+		if (foodX == x and foodY == y):
+			foodX = random.randint(0,7)
+			foodY = random.randint(0,7)
+			sense.clear()
+		sense.set_pixel(foodX,foodY,yellow)
 		sense.set_pixel(x,y,color)
 		
 MakeDotJoystick()
