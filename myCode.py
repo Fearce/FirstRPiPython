@@ -46,6 +46,12 @@ while (y<=3):
 	y += 1
 	x = 0
 
+while True:
+	for event in sense.stick.get_events():
+    # print(event.direction, event.action)
+		if (len(event.direction) > 2):
+			sense.show_message(str(printtemp))
+		
 #sense.show_message(str(printtemp))
 	
 
