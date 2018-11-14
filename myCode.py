@@ -78,15 +78,16 @@ def DisplayTempByColor(): #shows temp in a color
 def MakeDotJoystick():
 	x = 4
 	y = 4
-	sense.set_pixel(x,y,white)
+	color = white
+	sense.set_pixel(x,y,color)
 	while True:
 		for event in sense.stick.get_events():
 			if (event.action == "released"):
 				if (event.direction == "up"):
-					y +=1
+					y -=1
 					sense.clear()
 				elif (event.direction == "down"):
-					y -=1
+					y +=1
 					sense.clear()
 				elif (event.direction == "left"):
 					x -=1
@@ -94,7 +95,11 @@ def MakeDotJoystick():
 				elif (event.direction == "right"):
 					x +=1
 					sense.clear()
-		sense.set_pixel(x,y,white)
+		if (x < 2 or x > 5):
+			color = red
+		if (y < 2 or y > 5):
+			color = blue
+		sense.set_pixel(x,y,color)
 		
 MakeDotJoystick()
 	
