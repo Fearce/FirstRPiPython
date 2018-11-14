@@ -36,6 +36,6 @@ def DoColors(a,b,c):
 #	y = y+1
 	
 
-sense.show_message(str(int(printtemp)))
+sense.show_message(str(printtemp))
 	
 
