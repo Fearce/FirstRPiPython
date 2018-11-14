@@ -77,6 +77,8 @@ def DisplayTempByColor(): #shows temp in a color
 #sense.show_message(str(printtemp))
 
 def MakeDotJoystick():
+	points = 1
+	lastDir = "up"
 	x = 4
 	y = 4
 	foodX = random.randint(0,7)
@@ -87,19 +89,24 @@ def MakeDotJoystick():
 		for event in sense.stick.get_events():
 			if (event.action == "released"):
 				if (event.direction == "up" and y>0):
+					lastDir = "up"
 					y -=1
 					sense.clear()
 				elif (event.direction == "down" and y<7):
 					y +=1
+					lastDir = "down"
 					sense.clear()
 				elif (event.direction == "left" and x>0):
 					x -=1
+					lastDir = "left"
 					sense.clear()
 				elif (event.direction == "right" and x<7):
 					x +=1
+					lastDir = "right"
 					sense.clear()
 				elif (event.direction == "middle"):
 					x = 4
+					points = 0
 					y = 4
 					sense.clear()
 					
@@ -110,11 +117,20 @@ def MakeDotJoystick():
 		else:
 			color = white
 		if (foodX == x and foodY == y):
+			points += 1
 			foodX = random.randint(0,7)
 			foodY = random.randint(0,7)
 			sense.clear()
 		sense.set_pixel(foodX,foodY,yellow)
-		sense.set_pixel(x,y,color)
+		for pts in range(points):
+			if (lastDir == "up"):
+				sense.set_pixel(x,y+pts,color)
+			if (lastDir == "down"):
+				sense.set_pixel(x,y-pts,color)
+			if (lastDir == "left"):
+				sense.set_pixel(x+pts,y,color)
+			if (lastDir == "right"):
+				sense.set_pixel(x-pts,y-pts,color)
 		
 MakeDotJoystick()
 	
