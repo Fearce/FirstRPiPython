@@ -83,22 +83,29 @@ def MakeDotJoystick():
 	while True:
 		for event in sense.stick.get_events():
 			if (event.action == "released"):
-				if (event.direction == "up"):
+				if (event.direction == "up" and y>0):
 					y -=1
 					sense.clear()
-				elif (event.direction == "down"):
+				elif (event.direction == "down" and y<7):
 					y +=1
 					sense.clear()
-				elif (event.direction == "left"):
+				elif (event.direction == "left" and x>0):
 					x -=1
 					sense.clear()
-				elif (event.direction == "right"):
+				elif (event.direction == "right" and x<7):
 					x +=1
 					sense.clear()
+				elif (event.direction == "middle"):
+					x = 4
+					y = 4
+					sense.clear()
+					
 		if (x < 2 or x > 5):
 			color = red
-		if (y < 2 or y > 5):
+		elif (y < 2 or y > 5):
 			color = blue
+		else:
+			color = white
 		sense.set_pixel(x,y,color)
 		
 MakeDotJoystick()
