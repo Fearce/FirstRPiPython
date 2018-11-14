@@ -20,19 +20,15 @@ y = 0
 global color 
 color = red
 
-def DoColors(a,b,c):
-	while (a<8):
-		sense.set_pixel(a,b,c)
-		time.sleep(0.2)
-		a = a+1
-		if c == red:
-			c = blue
-		elif c == blue:
-			c = yellow
-		elif c == yellow:
-			c = green
-		elif c == green:
-			c = red
+def ChangeColor():
+	if c == red:
+		c = blue
+	elif c == blue:
+		c = yellow
+	elif c == yellow:
+		c = green
+	elif c == green:
+		c = red
 
 #while (y<8):
 #	DoColors(x,y,color)
@@ -43,8 +39,11 @@ while (y<=3):
 		sense.set_pixel(x,y,red)
 		time.sleep(0.2)
 		x += 1
+		if (x==7):
+			ChangeColor()
 	time.sleep(0.2)
 	y += 1
+	x = 0
 
 #sense.show_message(str(printtemp))
 	
